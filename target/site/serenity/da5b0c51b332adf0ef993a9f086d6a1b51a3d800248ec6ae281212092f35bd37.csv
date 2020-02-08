@@ -1,0 +1,2 @@
+"Story","Title","Result","Date","Stability","Duration (s)"
+"Resource /post should be renamed to /posts","The endpoint /posts with ID greater than 100 will give 404 error","FAILURE","2020-02-08T11:05:35.212+01:00[Europe/Berlin]","0.0","0.54"

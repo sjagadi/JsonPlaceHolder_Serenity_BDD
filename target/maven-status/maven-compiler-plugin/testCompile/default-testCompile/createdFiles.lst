@@ -1,0 +1,4 @@
+com\jsonplaceholder\base\BaseTest.class
+com\jsonplaceholder\utils\Utils.class
+com\jsonplaceholder\steps\PostsSteps.class
+com\jsonplaceholder\PostsRunner.class

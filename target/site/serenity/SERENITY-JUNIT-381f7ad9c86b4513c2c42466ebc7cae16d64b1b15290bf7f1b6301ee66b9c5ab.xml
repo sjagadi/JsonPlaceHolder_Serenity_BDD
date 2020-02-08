@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?><testsuite errors="0" failures="1" name="Resource /post should be renamed to /posts" skipped="0" tests="5" time="12.91" timestamp="2020-02-08 11:05:30"><testcase name="Posts endpoint accepts HTTP GET and provide all the available posts with status code as 200"/><testcase name="Post end point returns 404 status when GET method is used"/><testcase name="The endpoint /posts with specific ID returns the post with same ID when GET method is used"/><testcase name="The endpoint /posts with ID greater than 100 will give 404 error"><failure message="1 expectation failed.&#10;Expected status code &lt;404&gt; but was &lt;200&gt;.&#10;" type="java.lang.AssertionError">1 expectation failed.
+Expected status code &lt;404&gt; but was &lt;200&gt;.
+</failure><system-err>1 expectation failed.
+Expected status code &lt;404&gt; but was &lt;200&gt;.
+&#13;
+io.restassured.internal.ResponseSpecificationImpl.validateResponseIfRequired(ResponseSpecificationImpl.groovy:643)&#13;
+io.restassured.internal.ResponseSpecificationImpl.statusCode(ResponseSpecificationImpl.groovy:122)&#13;
+io.restassured.internal.ResponseSpecificationImpl.statusCode(ResponseSpecificationImpl.groovy:130)&#13;
+io.restassured.internal.ValidatableResponseOptionsImpl.statusCode(ValidatableResponseOptionsImpl.java:117)&#13;
+com.jsonplaceholder.steps.PostsSteps.it_returns_status_code(PostsSteps.java:31)&#13;
+✽.It returns status code "404"(src/test/resources/features/JsonPlaceHolder.feature:21)&#13;
+</system-err></testcase><testcase name="The endpoint /posts returns 500 internal server error status when HTTP POST method is used with the payload size greater than 10MB"/></testsuite>
