@@ -52,7 +52,7 @@ public class PostsSteps
 		Map<String, Object> jsonAsMap = new HashMap<>();
 		jsonAsMap.put("userId", 5);
 		jsonAsMap.put("title", Utils.getBigText());
-		jsonAsMap.put("description", Utils.getBigText());
+		jsonAsMap.put("body", Utils.getBigText());
 		response = SerenityRest.given().contentType("application/json").body(jsonAsMap).post("/" + endpoint).then();
 	}
 }
