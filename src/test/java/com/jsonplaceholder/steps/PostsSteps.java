@@ -6,7 +6,6 @@ import com.jsonplaceholder.utils.Utils;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import io.restassured.response.ValidatableResponse;
-import net.serenitybdd.rest.SerenityRest;
 
 public class PostsSteps 
 {
@@ -15,7 +14,7 @@ public class PostsSteps
 	@When("^User sends GET request to the endpoint \"([^\"]*)\"$")
 	public void user_sends_GET_request_to_the_endpoint(String endpoint) 
 	{
-		response = SerenityRest.given().when().get("/" + endpoint).then();
+		response = Utils.getRequest(endpoint);
 	}
 
 	@Then("^All posts count is not more than (\\d+)$")
@@ -32,9 +31,9 @@ public class PostsSteps
 	}
 
 	@When("^User sends GET request to the \"([^\"]*)\" with id as \"([^\"]*)\"$")
-	public void user_sends_GET_request_to_the_with_id_as(String posts, String id) 
+	public void user_sends_GET_request_to_the_with_id_as(String endpoint, String id) 
 	{
-		response = SerenityRest.given().get("/" + posts + "?id=" + id).then();
+		response = Utils.getRequest(endpoint  + "?id=" + id);
 	}
 
 	@Then("^Verify it has \"([^\"]*)\", \"([^\"]*)\" and \"([^\"]*)\"$")
@@ -53,6 +52,7 @@ public class PostsSteps
 		jsonAsMap.put("userId", 5);
 		jsonAsMap.put("title", Utils.getBigText());
 		jsonAsMap.put("body", Utils.getBigText());
-		response = SerenityRest.given().contentType("application/json").body(jsonAsMap).post("/" + endpoint).then();
+		response = Utils.postRequest("application/json", endpoint, jsonAsMap);
 	}
 }
+
