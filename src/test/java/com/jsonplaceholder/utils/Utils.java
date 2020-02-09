@@ -2,7 +2,11 @@ package com.jsonplaceholder.utils;
 
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.util.Map;
 import java.util.Properties;
+
+import io.restassured.response.ValidatableResponse;
+import net.serenitybdd.rest.SerenityRest;
 
 public class Utils 
 {
@@ -39,4 +43,17 @@ public class Utils
 	    }
 	    return bigText;
 	}
+	
+	public static ValidatableResponse getRequest(String relativeEndpoint)
+	{
+		ValidatableResponse response = SerenityRest.given().when().get("/" + relativeEndpoint).then();
+		return response;
+	}
+	
+	public static ValidatableResponse postRequest(String contentType, String relativeEndpoint, Map<String, Object> jsonAsMap) 
+	{
+		ValidatableResponse response = SerenityRest.given().contentType(contentType).body(jsonAsMap).post("/" + relativeEndpoint).then();
+		return response;
+	}
 }
+
